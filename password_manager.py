@@ -18,6 +18,15 @@ def encrypt_passwords_in_file(filename: str) -> None:
         for fila in lector:
             if fila:
                 filas.append(fila)
+    for i in range(len(filas)):
+        if i != 0:
+            password = filas[i][2]
+            filas[i][2] = caesar_encrypt(password)
+
+
+
+
+
 
 def change_password(filename: str, website: str, password: str) -> bool:
     """TODO: Parte 3."""
