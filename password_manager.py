@@ -34,6 +34,18 @@ def change_password(filename: str, website: str, password: str) -> bool:
         for fila in lector:
             if fila:
                 filas.append(fila)
+    encontrado = False
+    for i in range(len(filas)):
+        if filas[i][0] == website:
+            filas[i][2] = caesar_encrypt(password)
+            encontrado = True
+    if not encontrado:
+        return False
+
+
+
+
+
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
     """TODO: Parte 4."""
