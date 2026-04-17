@@ -41,10 +41,11 @@ def change_password(filename: str, website: str, password: str) -> bool:
             encontrado = True
     if not encontrado:
         return False
-
-
-
-
+    with open(filename, "w", newline="") as archivo:
+        escritor = csv.writer(archivo)
+        for fila in filas:
+            escritor.writerow(fila)
+    return True
 
 
 def add_login(filename: str, website_name: str, username: str, password: str) -> None:
